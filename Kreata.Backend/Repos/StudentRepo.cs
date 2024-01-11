@@ -42,10 +42,10 @@ namespace Kreata.Backend.Repos
             return response;
         }
 
-        public Task<ControllerResponse> DeleteAsync(Guid id)
+        public async Task<ControllerResponse> DeleteAsync(Guid id)
         {
             ControllerResponse response = new ControllerResponse();
-            Student studentToDelete = GetBy(id);
+            Student? studentToDelete = await GetBy(id);
             return response;
         }
     }
