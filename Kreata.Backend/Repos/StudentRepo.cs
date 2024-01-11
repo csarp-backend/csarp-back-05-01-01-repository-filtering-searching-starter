@@ -53,6 +53,9 @@ namespace Kreata.Backend.Repos
             }
             else
             {
+                _dbContext.ChangeTracker.Clear();
+                _dbContext.Entry(studentToDelete).State = EntityState.Deleted;
+                await _dbContext.SaveChangesAsync();
             }
             return response;
         }
