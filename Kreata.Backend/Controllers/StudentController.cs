@@ -24,8 +24,8 @@ namespace Kreata.Backend.Controllers
             Student? entity = new();
             if (_studentRepo is not null)
             {
-                entity = await _studentRepo.GetBy(id);
-                if (entity!=null) 
+                entity = await _studentRepo.GetByIdAsync(id);
+                if (entity != null)
                     return Ok(entity.ToStudentDto());
             }
             return BadRequest("Az adatok elérhetetlenek!");
@@ -38,7 +38,7 @@ namespace Kreata.Backend.Controllers
 
             if (_studentRepo != null)
             {
-                users = await _studentRepo.GetAll();
+                users = await _studentRepo.GetAllAsync();
                 return Ok(users.Select(student => student.ToStudentDto()));
             }
             return BadRequest("Az adatok elérhetetlenek!");
@@ -62,6 +62,11 @@ namespace Kreata.Backend.Controllers
             }
             response.ClearAndAddError("Az adatok frissítés nem lehetséges!");
             return BadRequest(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteStudendAsync(Guid id)
+        {
         }
     }
 }

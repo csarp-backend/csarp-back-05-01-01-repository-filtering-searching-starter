@@ -14,12 +14,12 @@ namespace Kreata.Backend.Repos
             _dbContext = dbContext;
         }
 
-        public async Task<Student?> GetBy(Guid id)
+        public async Task<Student?> GetByIdAsync(Guid id)
         {
             return await _dbContext.Students.FirstOrDefaultAsync(s => s.Id == id);
         }
 
-        public async Task<List<Student>> GetAll()
+        public async Task<List<Student>> GetAllAsync()
         {
             return await _dbContext.Students.ToListAsync();
         }
@@ -42,10 +42,10 @@ namespace Kreata.Backend.Repos
             return response;
         }
 
-        public async Task<ControllerResponse> DeleteAsync(Guid id)
+        public async Task<ControllerResponse> DeleteStudentAsync(Guid id)
         {
             ControllerResponse response = new ControllerResponse();
-            Student? studentToDelete = await GetBy(id);
+            Student? studentToDelete = await GetByIdAsync(id);
             if (studentToDelete == null || studentToDelete == default)
             {
                 response.AppendNewError($"{id} idével rendelkező diák nem található!");
