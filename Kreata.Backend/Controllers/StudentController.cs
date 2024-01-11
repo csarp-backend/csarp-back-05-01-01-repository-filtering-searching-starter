@@ -53,6 +53,8 @@ namespace Kreata.Backend.Controllers
                 response = await _studentRepo.UpdateStudentAsync(entity.ToStudent());
                 if (response.HasError)
                 {
+                    Console.WriteLine(response.Error);
+                    response.ClearAndAddError("A diák adatainak módosítása nem sikerült!");
                     return BadRequest(response);
                 }
                 else
@@ -67,6 +69,24 @@ namespace Kreata.Backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudendAsync(Guid id)
         {
+            ControllerResponse response = new();
+            if (_studentRepo is not null)
+            {
+                response = await _studentRepo.DeleteStudentAsync(id);
+
+                if (response.HasError)
+                {
+                    Console.WriteLine(response.Error);
+                    response.ClearAndAddError("A diák adatainak törlése nem sikerült!");
+                    return BadRequest(response);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            response.ClearAndAddError("Az adatok törlése nem lehetséges!");
+            return BadRequest(response);
         }
     }
 }
