@@ -59,5 +59,10 @@ namespace Kreata.Backend.Repos
             }
             return response;
         }
+
+        public Task<ControllerResponse> InsertStudentAsync(Student student)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
