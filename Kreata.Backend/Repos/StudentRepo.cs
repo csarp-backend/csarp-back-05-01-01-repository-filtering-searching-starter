@@ -41,5 +41,10 @@ namespace Kreata.Backend.Repos
             }
             return response;
         }
+
+        public Task<ControllerResponse> DeleteAsync(Guid id)
+        {
+
+        }
     }
 }
