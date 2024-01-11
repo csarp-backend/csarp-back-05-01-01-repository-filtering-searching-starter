@@ -46,6 +46,14 @@ namespace Kreata.Backend.Repos
         {
             ControllerResponse response = new ControllerResponse();
             Student? studentToDelete = await GetBy(id);
+            if (studentToDelete == null || studentToDelete == default)
+            {
+                response.AppendNewError($"{id} idével rendelkező diák nem található!");
+                response.AppendNewError("A diák törlése nem sikerült!");
+            }
+            else
+            {
+            }
             return response;
         }
     }
