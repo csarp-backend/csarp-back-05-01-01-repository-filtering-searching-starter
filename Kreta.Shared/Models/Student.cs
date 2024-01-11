@@ -4,14 +4,6 @@ namespace Kreta.Shared.Models
 {
     public class Student
     {
-        public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime BirthsDay { get; set; }
-        public int SchoolYear { get; set; }
-        public SchoolClassType SchoolClass { get; set; }
-        public string EducationLevel { get; set; }
-
         public Student(Guid id,string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
         {
             Id=id;
@@ -44,6 +36,15 @@ namespace Kreta.Shared.Models
             SchoolClass = SchoolClassType.ClassA;
             EducationLevel = string.Empty;
         }
+
+        public Guid Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthsDay { get; set; }
+        public int SchoolYear { get; set; }
+        public SchoolClassType SchoolClass { get; set; }
+        public string EducationLevel { get; set; }
+        public bool HasId => Id != Guid.Empty;
 
         public override string ToString()
         {
