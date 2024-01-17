@@ -88,5 +88,25 @@ namespace Kreata.Backend.Controllers
             response.ClearAndAddError("Az adatok törlése nem lehetséges!");
             return BadRequest(response);
         }
+
+        [HttpPost()]
+        public async Task<IActionResult> InsertStudentAsync(StudentDto student)
+        {
+            ControllerResponse response = new();
+            if (_studentRepo is not null)
+            {
+                response = await _studentRepo.InsertStudentAsync(student.ToStudent());
+                if (response.HasError)
+                {
+                    Console.WriteLine(response.Error);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            response.ClearAndAddError("Az új adatok mentése nem lehetséges!");
+            return BadRequest(response);
+        }
     }
 }
