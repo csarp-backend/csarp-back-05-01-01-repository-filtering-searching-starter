@@ -51,7 +51,7 @@ namespace Kreata.Backend.Controllers
             ControllerResponse response = new();
             if (_studentRepo is not null)
             {
-                response = await _studentRepo.UpdateStudentAsync(entity.ToStudent());
+                response = await _studentRepo.UpdateAsync(entity.ToStudent());
                 if (response.HasError)
                 {
                     Console.WriteLine(response.Error);
@@ -73,7 +73,7 @@ namespace Kreata.Backend.Controllers
             ControllerResponse response = new();
             if (_studentRepo is not null)
             {
-                response = await _studentRepo.DeleteStudentAsync(id);
+                response = await _studentRepo.DeleteAsync(id);
 
                 if (response.HasError)
                 {
@@ -96,7 +96,7 @@ namespace Kreata.Backend.Controllers
             ControllerResponse response = new();
             if (_studentRepo is not null)
             {
-                response = await _studentRepo.InsertStudentAsync(student.ToStudent());
+                response = await _studentRepo.InsertAsync(student.ToStudent());
                 if (response.HasError)
                 {
                     Console.WriteLine(response.Error);
