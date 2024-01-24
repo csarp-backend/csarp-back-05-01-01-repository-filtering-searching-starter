@@ -30,13 +30,13 @@ namespace Kreata.Backend.Repos
             return _dbSet.AsNoTracking();
         }
 
-        public TEntity GetById(Guid id)
+        public async Task<TEntity> GetById(Guid id)
         {
             if (_dbSet is null)
             {
                 return new TEntity();
             }
-            return _dbSet.FirstOrDefault(entity => entity.Id == id) ?? new TEntity();
+            return await _dbSet.FirstOrDefaultAsync(entity => entity.Id == id) ?? new TEntity();
         }
 
         public IQueryable<TEntity> FindByCondition(Expression<Func<TEntity, bool>> expression)

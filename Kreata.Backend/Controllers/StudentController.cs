@@ -24,7 +24,7 @@ namespace Kreata.Backend.Controllers
             Student? entity = new();
             if (_studentRepo is not null)
             {
-                entity = await _studentRepo.GetByIdAsync(id);
+                entity = await _studentRepo.GetById(id);
                 if (entity != null)
                     return Ok(entity.ToStudentDto());
             }
