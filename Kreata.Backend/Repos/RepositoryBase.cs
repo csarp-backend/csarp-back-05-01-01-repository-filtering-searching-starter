@@ -69,7 +69,7 @@ namespace Kreata.Backend.Repos
         public async Task<ControllerResponse> DeleteAsync(Guid id)
         {
             ControllerResponse response = new ControllerResponse();
-            TEntity studentToDelete = GetById(id);
+            TEntity studentToDelete = await GetById(id);
             if (!studentToDelete.HasId)
             {
                 response.AppendNewError($"{id} idével rendelkező entitás nem található!");
@@ -123,7 +123,7 @@ namespace Kreata.Backend.Repos
                 catch (Exception e)
                 {
                     response.AppendNewError(e.Message);
-                    response.AppendNewError($"{nameof(StudentRepo)} osztály, {nameof(InsertNewItemAsync)} metódusban hiba keletkezett");
+                    response.AppendNewError($"{nameof(RepositoryBase<TDbContext, TEntity>)} osztály, {nameof(InsertNewItemAsync)} metódusban hiba keletkezett");
                     response.AppendNewError($"{entity} osztály hozzáadása az adatbázishoz nem sikerült!");
                 }
             }
