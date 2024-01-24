@@ -12,12 +12,13 @@ namespace Kreata.Backend.Repos
     {
         private readonly IDbContextFactory<TDbContext> _dbContextFactory;
         private DbSet<TEntity>? _dbSet;
+        private TDbContext _dbContext;
 
         public RepositoryBase(IDbContextFactory<TDbContext> dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;
-            TDbContext dbContext = _dbContextFactory.CreateDbContext();
-            _dbSet = dbContext.Set<TEntity>();
+            _dbContext = _dbContextFactory.CreateDbContext();
+            _dbSet = _dbContext.Set<TEntity>();
         }
 
         public IQueryable<TEntity> FindAll()
@@ -46,6 +47,24 @@ namespace Kreata.Backend.Repos
             }
             return _dbSet.Where(expression).AsNoTracking();
         }
+        public async Task<ControllerResponse> UpdateAsync(TEntity entity)
+        {
+            ControllerResponse response = new ControllerResponse();
+            _dbContext.ChangeTracker.Clear();
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                response.AppendNewError(e.Message);
+                response.AppendNewError($"{nameof(RepositoryBase<TDbContext, TEntity>)} osztály, {nameof(UpdateAsync)} metódusban hiba keletkezett");
+                response.AppendNewError($"{entity} frissítése nem sikerült!");
+
+            }
+            return response;
+        }
 
         public Task<ControllerResponse> DeleteAsync(Guid id)
         {
@@ -53,11 +72,6 @@ namespace Kreata.Backend.Repos
         }
 
         public Task<ControllerResponse> InsertAsync(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ControllerResponse> UpdateAsync(TEntity entity)
         {
             throw new NotImplementedException();
         }
