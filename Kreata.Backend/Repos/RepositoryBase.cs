@@ -19,12 +19,16 @@ namespace Kreata.Backend.Repos
             _dbSet = dbContext.Set<TEntity>();
         }
 
-        public Task<ControllerResponse> DeleteAsync(Guid id)
+        public IQueryable<TEntity> FindAll()
         {
-            throw new NotImplementedException();
+            if (_dbSet is null)
+            {
+                return Enumerable.Empty<TEntity>().AsQueryable().AsNoTracking();
+            }
+            return _dbSet.AsNoTracking();
         }
 
-        public IQueryable<TEntity> FindAll()
+        public Task<ControllerResponse> DeleteAsync(Guid id)
         {
             throw new NotImplementedException();
         }
