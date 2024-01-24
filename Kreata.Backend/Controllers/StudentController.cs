@@ -4,6 +4,7 @@ using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
 using Kreta.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kreata.Backend.Controllers
 {
@@ -38,7 +39,7 @@ namespace Kreata.Backend.Controllers
 
             if (_studentRepo != null)
             {
-                users = await _studentRepo.GetAllAsync();
+                users = await _studentRepo.FindAll().ToListAsync();
                 return Ok(users.Select(student => student.ToStudentDto()));
             }
             return BadRequest("Az adatok elérhetetlenek!");
