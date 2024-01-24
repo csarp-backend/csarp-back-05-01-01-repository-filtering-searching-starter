@@ -1,4 +1,5 @@
 ﻿using Kreata.Backend.Context;
+using Kreata.Backend.ContextRepos;
 using Kreata.Backend.Repos;
 using Microsoft.EntityFrameworkCore;
 
@@ -43,7 +44,7 @@ namespace Kreata.Backend.Extensions
 
         public static void ConfigureRepos(this IServiceCollection services) 
         { 
-            services.AddScoped<IStudentRepo, StudentRepo>();
+            services.AddScoped<IStudentRepo, StudentInMemoryRepo>();
         }
     }
 }
