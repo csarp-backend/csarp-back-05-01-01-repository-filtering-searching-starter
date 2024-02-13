@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Kreata.Backend.Controllers
+namespace Kreta.Backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]

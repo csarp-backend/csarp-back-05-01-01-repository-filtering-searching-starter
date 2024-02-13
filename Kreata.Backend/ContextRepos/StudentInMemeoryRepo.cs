@@ -1,8 +1,8 @@
-﻿using Kreata.Backend.Context;
-using Kreata.Backend.Repos;
+﻿using Kreta.Backend.Context;
+using Kreta.Backend.Repos;
 using Microsoft.EntityFrameworkCore;
 
-namespace Kreata.Backend.ContextRepos
+namespace Kreta.Backend.ContextRepos
 {
     public class StudentInMemoryRepo : StudentRepo<KretaInMemoryContext>, IStudentRepo
     {

@@ -3,7 +3,7 @@ using Kreta.Shared.Responses;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Kreata.Backend.Repos
+namespace Kreta.Backend.Repos
 {
     public class RepositoryBase<TDbContext, TEntity> : IRepositoryBase<TEntity>
         where TDbContext : DbContext

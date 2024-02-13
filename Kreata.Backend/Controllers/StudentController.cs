@@ -1,4 +1,4 @@
-﻿using Kreata.Backend.Repos;
+﻿using Kreta.Backend.Repos;
 using Kreta.Shared.Dtos;
 using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
@@ -6,7 +6,7 @@ using Kreta.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Kreata.Backend.Controllers
+namespace Kreta.Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

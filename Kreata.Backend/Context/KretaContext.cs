@@ -1,7 +1,7 @@
 ﻿using Kreta.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Kreata.Backend.Context
+namespace Kreta.Backend.Context
 {
     public class KretaContext : DbContext
     {

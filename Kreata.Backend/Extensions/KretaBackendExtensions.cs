@@ -1,9 +1,9 @@
-﻿using Kreata.Backend.Context;
-using Kreata.Backend.ContextRepos;
-using Kreata.Backend.Repos;
+﻿using Kreta.Backend.Context;
+using Kreta.Backend.ContextRepos;
+using Kreta.Backend.Repos;
 using Microsoft.EntityFrameworkCore;
 
-namespace Kreata.Backend.Extensions
+namespace Kreta.Backend.Extensions
 {
     public static class KretaBackendExtensions
     {

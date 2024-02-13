@@ -1,7 +1,7 @@
 ﻿using Kreta.Shared.Responses;
 using System.Linq.Expressions;
 
-namespace Kreata.Backend.Repos
+namespace Kreta.Backend.Repos
 {
     public interface IRepositoryBase<T>
     {

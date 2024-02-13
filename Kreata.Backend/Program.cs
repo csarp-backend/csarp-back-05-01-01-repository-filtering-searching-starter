@@ -1,5 +1,5 @@
-using Kreata.Backend.Context;
-using Kreata.Backend.Extensions;
+using Kreta.Backend.Context;
+using Kreta.Backend.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
