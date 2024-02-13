@@ -12,7 +12,7 @@ namespace Kreta.Shared.Extensions
                 Id=student.Id,
                 FirstName = student.FirstName,
                 LastName = student.LastName,
-                BirthsDay = student.BirthsDay,
+                BirthDay = student.BirthDay,
                 SchoolYear = student.SchoolYear,
                 SchoolClass = student.SchoolClass,
                 EducationLevel = student.EducationLevel
@@ -26,7 +26,7 @@ namespace Kreta.Shared.Extensions
                 Id = studentdto.Id,
                 FirstName = studentdto.FirstName,
                 LastName = studentdto.LastName,
-                BirthsDay = studentdto.BirthsDay,
+                BirthDay = studentdto.BirthDay,
                 SchoolYear = studentdto.SchoolYear,
                 SchoolClass = studentdto.SchoolClass,
                 EducationLevel = studentdto.EducationLevel

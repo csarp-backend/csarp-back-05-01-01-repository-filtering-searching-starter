@@ -4,23 +4,23 @@ namespace Kreta.Shared.Models
 {
     public class Student : IDbEntity<Student>
     {
-        public Student(Guid id,string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
+        public Student(Guid id,string firstName, string lastName, DateTime birthDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
         {
             Id=id;
             FirstName = firstName;
             LastName = lastName;
-            BirthsDay = birthsDay;
+            BirthDay = birthDay;
             SchoolYear = schoolYear;
             SchoolClass = schoolClass;
             EducationLevel = educationLevel;
         }
 
-        public Student(string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
+        public Student(string firstName, string lastName, DateTime birthDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
         {
             Id=Guid.NewGuid();
             FirstName = firstName;
             LastName = lastName;
-            BirthsDay = birthsDay;
+            BirthDay = birthDay;
             SchoolYear = schoolYear;
             SchoolClass = schoolClass;
             EducationLevel = educationLevel;
@@ -31,7 +31,7 @@ namespace Kreta.Shared.Models
             Id = Guid.NewGuid();
             FirstName = string.Empty;
             LastName = string.Empty;
-            BirthsDay = new DateTime();
+            BirthDay = new DateTime();
             SchoolYear = 9;
             SchoolClass = SchoolClassType.ClassA;
             EducationLevel = string.Empty;
@@ -40,7 +40,7 @@ namespace Kreta.Shared.Models
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime BirthsDay { get; set; }
+        public DateTime BirthDay { get; set; }
         public int SchoolYear { get; set; }
         public SchoolClassType SchoolClass { get; set; }
         public string EducationLevel { get; set; }
@@ -48,7 +48,7 @@ namespace Kreta.Shared.Models
 
         public override string ToString()
         {
-            return $"{Id} {LastName} {FirstName} ({SchoolYear}.{SchoolClass}) - ({String.Format("{0:yyyy.MM.dd.}", BirthsDay)}) ({EducationLevel})";
+            return $"{Id} {LastName} {FirstName} ({SchoolYear}.{SchoolClass}) - ({String.Format("{0:yyyy.MM.dd.}", BirthDay)}) ({EducationLevel})";
         }
     }
 }

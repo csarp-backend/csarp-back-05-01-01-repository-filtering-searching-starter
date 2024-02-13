@@ -15,7 +15,7 @@ namespace Kreata.Backend.Context
                     Id=Guid.NewGuid(),
                     FirstName="János",
                     LastName="Jegy",
-                    BirthsDay=new DateTime(2022,10,10),
+                    BirthDay=new DateTime(2022,10,10),
                     SchoolYear=9,
                     SchoolClass = SchoolClassType.ClassA,
                     EducationLevel="érettségi"
@@ -25,7 +25,7 @@ namespace Kreata.Backend.Context
                     Id=Guid.NewGuid(),
                     FirstName="Szonja",
                     LastName="Stréber",
-                    BirthsDay=new DateTime(2021,4,4),
+                    BirthDay=new DateTime(2021,4,4),
                     SchoolYear=10,
                     SchoolClass = SchoolClassType.ClassB,
                     EducationLevel="érettségi"
